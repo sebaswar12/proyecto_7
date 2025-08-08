@@ -26,3 +26,11 @@ if st.button("Mostrar histogramas"):
     fig = go.Figure(data=[go.Histogram(x=car_data['model_year'].dropna())])
     fig.update_layout(title='Distribucion del año del modelo', xaxis_title='Año del modelo', yaxis_title='Frecuencia')
     st.plotly_chart(fig, use_container_width=True)
+
+if st.button("Mostrar gráfico de dispersión"):
+    fig = go.Figure([go.Scatter(
+        x=car_data['model_year'],
+        y=car_data['price'],
+        mode='markers'
+    )])
+    st.plotly_chart(fig, use_container_width=True)
